@@ -1,40 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorker from './scripts/serviceWorker';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+import './styles/index.css';
+import './assets/fonts/apercu-mono-regular-pro.ttf'
+import './assets/fonts/apercu-mono-bold-pro.ttf'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
-import './fonts/apercu-mono-regular-pro.ttf'
-import './fonts/apercu-mono-bold-pro.ttf'
+import theme from './styles/theme.js';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ef5e91',
-      light: '#ff91c1',
-      dark: '#b92864'
-    },
-    secondary: {
-      main: '#eeeeee',
-      light: '#ffffff',
-      dark: '#bcbcbc'
-    },
-    status: {
-      danger: 'orange',
-    },
-  },
-  typography: {
-    fontFamily: 'Apercu Mono Regular',
-  },
-});
+const app = (
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>
+)
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>,
+  app,
   document.querySelector('#root'),
 );
 
@@ -42,3 +29,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+

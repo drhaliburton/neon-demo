@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Apercu Mono Bold';
-  src: local('Apercu Mono Bold'), url('./fonts/apercu-mono-bold-pro.ttf') format('truetype');
+  src: local('Apercu Mono Bold'), url('../assets/fonts/apercu-mono-bold-pro.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Apercu Mono Regular';
-  src: local('Apercu Mono Regular'), url('./fonts/apercu-mono-regular-pro.ttf') format('truetype');
+  src: local('Apercu Mono Regular'), url('../assets/fonts/apercu-mono-regular-pro.ttf') format('truetype');
 }
 
 body {
@@ -14,8 +14,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-
-.MuiButton-label {
-  font-weight: 600;
 }

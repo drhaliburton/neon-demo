@@ -18,7 +18,6 @@ export default function Btn(props) {
     <>
       <Button
         variant="contained"
-        size="large"
         color={props.color}
         className={classes.button}>
         {props.text}

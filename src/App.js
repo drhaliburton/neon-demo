@@ -1,11 +1,14 @@
 import React from 'react';
-import Btn from './views/components/Button.js';
-import './App.css';
+import { Route } from 'react-router-dom'
+import LandingPage from './views/LandingPage.js';
+import LoginPage from './views/LoginPage.js';
+import './styles/App.css';
 
 function App() {
   return (
     <>
-      <Btn text="Start Shopping" color="primary"></Btn>
+      <Route exact path="/" component={LandingPage} />
+      <Route exact path="/login" component={LoginPage} />
     </>
   );
 }

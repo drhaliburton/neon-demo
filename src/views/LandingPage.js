@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import Btn from './components/Button.js';
 
 function LandingPage() {
   return (
-    <>
-      Landing Page
-    </>
+    <div className="landing-page">
+      <Btn text="Start Shopping" color="primary"></Btn>
+    </div>
   );
 }
 

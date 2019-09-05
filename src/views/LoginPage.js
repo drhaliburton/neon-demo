@@ -1,9 +1,10 @@
 import React from 'react';
+import Btn from './components/Button.js';
 
 function LoginPage() {
   return (
     <>
-      Hello World
+      <Btn text="Sign In" color="primary"></Btn>
     </>
   );
 }
