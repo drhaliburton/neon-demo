@@ -1,10 +1,74 @@
-.landing-page {
-  height: 100vh;
-  width: 100vw;
+a {
+  width: 100%;
+  text-decoration: none;
 }
 
-/* MATERIAL OVERRIDES */
+button {
+  max-width: 600px;
+}
+
+.top-bar {
+  margin: 15px;
+  text-align: left;
+}
+
+.page-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px 20px 80px;
+  margin: auto;
+}
+
+.page-container > h1 {
+  margin-top: auto;
+  width: 100%;
+}
+
+.page-container > img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  height: 100%;
+}
+
+.content-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.fb-btn > .MuiButton-containedPrimary,
+.fb-btn > .MuiButton-containedPrimary:hover {
+  background-color: #3A5797;
+  margin: 10px 0 10px;
+}
+
+.fb-btn img, .twitter-btn img {
+  margin-left: 30px;
+}
+
+.twitter-btn > .MuiButton-containedPrimary,
+.twitter-btn > .MuiButton-containedPrimary:hover {
+  background-color: #54ACEE;
+  margin: 10px 0 10px;
+}
 
 .MuiButton-label {
   font-weight: 600;
+}
+
+.login-form {
+  margin: 0 auto 20px;
+  max-width: 600px;
+}
+
+.MuiFormHelperText-root {
+  position: absolute;
+  top: 55px;
+  margin-bottom: 5px;
 }

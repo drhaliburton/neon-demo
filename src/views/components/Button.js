@@ -11,16 +11,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Btn(props) {
-
   const classes = useStyles();
-
   return (
     <>
       <Button
+        onClick={props.clickAction}
         variant="contained"
         color={props.color}
         className={classes.button}>
         {props.text}
+        {props.icon}
       </Button>
     </>
   );
