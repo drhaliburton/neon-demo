@@ -9,7 +9,7 @@ function LoginPage(props) {
   return (
     <div className="page-container">
       <TopBar icon="arrow_back" linkTo="/" />
-      <div className="content-container">
+      <div className="content-container scale-up-center">
         <LoginForm />
         <div className="fb-btn">
           <Btn

@@ -8,11 +8,12 @@ button {
 }
 
 .top-bar {
-  margin: 15px;
   text-align: left;
 }
 
 .page-container {
+  position: absolute;
+  top: 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -21,9 +22,11 @@ button {
   width: 100vw;
   padding: 20px 20px 80px;
   margin: auto;
+  overflow: scroll;
 }
 
-.page-container > h1 {
+.content-container > h1 {
+  color: #fff;
   margin-top: auto;
   width: 100%;
 }
@@ -40,6 +43,15 @@ button {
 .content-container {
   max-width: 600px;
   margin: auto;
+}
+
+.landing-image {
+  background:linear-gradient(0deg,rgba(0,0,0,0.01),rgba(0,0,0,0.45)),url('../assets/shoe1.jpg');
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .fb-btn > .MuiButton-containedPrimary,
@@ -63,7 +75,7 @@ button {
 }
 
 .login-form {
-  margin: 0 auto 20px;
+  margin: 0 auto 35px;
   max-width: 600px;
 }
 
@@ -71,4 +83,53 @@ button {
   position: absolute;
   top: 55px;
   margin-bottom: 5px;
+}
+
+.fade-in {
+	-webkit-animation: fade-in .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.scale-up-center {
+	-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }

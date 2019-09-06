@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Btn from './Button.js';
-import TextField from '@material-ui/core/TextField';
+import ForgotPw from './ForgotPw.js';
+import { TextField, Modal, Fade, Backdrop } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -9,6 +10,18 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     'max-width': '80%',
   },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    width: '80%',
+    outline: 0,
+  },
 }));
 
 function LoginForm() {
@@ -16,15 +29,18 @@ function LoginForm() {
   const [values, setValues] = useState({
     email: '',
     password: '',
-    emailError: false,
-    pwError: false,
   });
+  const [errors, setErrors] = useState({
+    email: false,
+    password: false,
+  })
+  const [open, setOpen] = useState(false);
+
 
   const handleChange = name => event => {
     const newVals = { ...values, [name]: event.target.value };
-    if (values.emailError || values.pwError) {
-      newVals['emailError'] = false;
-      newVals['pwError'] = false;
+    if (errors.email || errors.password) {
+      setErrors({ email: false, password: false });
     }
     setValues(newVals);
   };
@@ -33,10 +49,10 @@ function LoginForm() {
     const validEmail = validateEmail(values.email);
     const validPw = validatePassword(values.password);
     if (!validEmail || !validPw) {
-      setValues({ ...values, emailError: !validEmail, pwError: !validPw });
+      setErrors({ email: !validEmail, password: !validPw });
     }
     if (validEmail && validPw) {
-      console.log('good to go')
+      handleOpen();
     }
   }
 
@@ -49,28 +65,36 @@ function LoginForm() {
     return pw.length >= 4;
   }
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="login-form">
       <TextField
         id="outlined-email"
-        error={values.emailError}
+        error={errors.email}
         className={classes.textField}
         placeholder='Email'
         margin="normal"
         variant="outlined"
         onChange={handleChange('email')}
-        helperText={values.emailError && 'Enter a valid email'}
+        helperText={errors.email && 'Enter a valid email'}
       />
 
       <TextField
         id="outlined-password"
-        error={values.pwError}
+        error={errors.password}
         className={classes.textField}
         placeholder='Password'
         margin="normal"
         variant="outlined"
         onChange={handleChange('password')}
-        helperText={values.pwError && 'Minimum of 4 characters'}
+        helperText={errors.password && 'Minimum of 4 characters'}
       />
 
       <Btn
@@ -79,11 +103,35 @@ function LoginForm() {
         color="primary"
         alt="SignIn"
       />
+
+      <ForgotPw />
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <h2 id="transition-modal-title">Login Successful!</h2>
+            <Btn
+              clickAction={handleClose}
+              text="Continue Shopping"
+              color="primary"
+              alt="Continue"
+            />
+          </div>
+        </Fade>
+      </Modal>
     </div>
   );
 }
 
 export default LoginForm;
-
-
-
