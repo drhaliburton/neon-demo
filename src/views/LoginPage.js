@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import FixedBgImage from './components/FixedBgImage.js';
 import SocialLogin from './components/SocialLogin.js';
 import LoginForm from './components/LoginForm.js';
 import TopBar from './components/TopBar.js';
 import Btn from './components/Button.js';
 import { Modal, Fade, Backdrop } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+import shoe2 from '../assets/shoe2.jpg';
 
 function LoginPage(props) {
   const classes = useStyles();
@@ -31,6 +34,7 @@ function LoginPage(props) {
   return (
     <div className="page-container">
       <TopBar icon="arrow_back" linkTo="/" />
+      <FixedBgImage image={shoe2} color="#B1EBF7" />
       <div className="content-container scale-up-center">
         <LoginForm openModal={handleOpen} />
         <SocialLogin openModal={handleOpen} />

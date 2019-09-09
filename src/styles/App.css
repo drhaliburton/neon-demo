@@ -31,19 +31,17 @@ button {
   width: 100%;
 }
 
-.page-container > img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -2;
-  height: 100%;
-}
-
 .content-container {
   max-width: 600px;
   margin: auto;
 }
+
+.login-form {
+  margin: 0 auto 35px;
+  max-width: 600px;
+}
+
+/* IMAGES */
 
 .landing-image {
   background:linear-gradient(0deg,rgba(0,0,0,0.01),rgba(0,0,0,0.45)),url('../assets/shoe1.jpg');
@@ -53,6 +51,16 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.bg-image {
+  height: 70%;
+  top: 15%;
+  right: -45%;
+  border-radius: 20px;
+  position: absolute;
+}
+
+/* BUTTONS */
 
 .fb-btn > .MuiButton-containedPrimary,
 .fb-btn > .MuiButton-containedPrimary:hover {
@@ -70,20 +78,19 @@ button {
   margin: 10px 0 10px;
 }
 
-.MuiButton-label {
-  font-weight: 600;
-}
-
-.login-form {
-  margin: 0 auto 35px;
-  max-width: 600px;
-}
+/* MATERIAL OVERRIDES */
 
 .MuiFormHelperText-root {
   position: absolute;
   top: 55px;
   margin-bottom: 5px;
 }
+
+.MuiButton-label {
+  font-weight: 600;
+}
+
+/* ANIMATIONS */
 
 .fade-in {
 	-webkit-animation: fade-in .4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -106,7 +113,6 @@ button {
     opacity: 1;
   }
 }
-
 
 .scale-up-center {
 	-webkit-animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
