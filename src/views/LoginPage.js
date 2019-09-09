@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+
 import FixedBgImage from './components/FixedBgImage.js';
 import SocialLogin from './components/SocialLogin.js';
 import LoginForm from './components/LoginForm.js';
@@ -27,7 +29,7 @@ function LoginPage(props) {
 
   const renderWelcome = () => {
     if (name) {
-      return `Welcome Back ${name}`;
+      return `Welcome Back ${name}.`;
     }
   }
 
@@ -38,7 +40,6 @@ function LoginPage(props) {
       <div className="content-container scale-up-center">
         <LoginForm openModal={handleOpen} />
         <SocialLogin openModal={handleOpen} />
-
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -55,12 +56,14 @@ function LoginPage(props) {
             <div className={classes.paper}>
               <h2 id="transition-modal-title">Login Successful!</h2>
               {renderWelcome()}
-              <Btn
-                clickAction={handleClose}
-                text="Continue Shopping"
-                color="primary"
-                alt="Continue"
-              />
+              <Link to="/welcome">
+                <Btn
+                  clickAction={handleClose}
+                  text="Continue Shopping"
+                  color="primary"
+                  alt="Continue"
+                />
+              </Link>
             </div>
           </Fade>
         </Modal>

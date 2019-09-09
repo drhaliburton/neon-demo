@@ -7,6 +7,10 @@ button {
   max-width: 600px;
 }
 
+input {
+  background-color: white !important;
+}
+
 .top-bar {
   text-align: left;
 }
@@ -22,13 +26,8 @@ button {
   width: 100vw;
   padding: 20px 20px 80px;
   margin: auto;
-  overflow: scroll;
-}
-
-.content-container > h1 {
-  color: #fff;
-  margin-top: auto;
-  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .content-container {
@@ -39,6 +38,14 @@ button {
 .login-form {
   margin: 0 auto 35px;
   max-width: 600px;
+}
+
+/* TYPOGRAPHY */
+
+.landing-page h1 {
+  color: #fff;
+  margin-top: auto;
+  width: 100%;
 }
 
 /* IMAGES */
@@ -53,11 +60,18 @@ button {
 }
 
 .bg-image {
-  height: 70%;
+  position: absolute;
+  z-index: -1;
   top: 15%;
   right: -45%;
+  height: 70%;
   border-radius: 20px;
-  position: absolute;
+}
+
+@media (min-width: 600px) {
+  .bg-image {
+    right: -10%;
+  }
 }
 
 /* BUTTONS */

@@ -6,7 +6,7 @@ function LandingPage() {
   return (
     <>
       <div className="landing-image"></div>
-      <div className="page-container">
+      <div className="page-container landing-page">
         <div className="content-container fade-in">
           <h1>Welcome To Guilt-Free Shopping</h1>
           <Link to="/login">
