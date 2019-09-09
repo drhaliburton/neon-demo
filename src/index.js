@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import * as serviceWorker from './scripts/serviceWorker';
+// import * as serviceWorker from './scripts/serviceWorker';
 import App from './App';
 
 import './styles/index.css';
@@ -25,5 +25,5 @@ ReactDOM.render(
   document.querySelector('#root'),
 );
 
-serviceWorker.unregister();
+// serviceWorker.register();
 

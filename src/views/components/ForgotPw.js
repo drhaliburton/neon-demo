@@ -4,25 +4,6 @@ import { TextField, Button, Modal, Fade, Backdrop } from '@material-ui/core';
 import Btn from './Button.js';
 import TopBar from './TopBar.js';
 
-const useStyles = makeStyles(theme => ({
-  textField: {
-    margin: '20px auto 25px',
-    width: '90%',
-  },
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(1),
-    width: '80%',
-    outline: 0,
-  },
-}));
-
 export default function ForgotPw(props) {
   const [open, setOpen] = useState(false);
   const [values, setValues] = useState({
@@ -106,3 +87,21 @@ export default function ForgotPw(props) {
   );
 }
 
+const useStyles = makeStyles(theme => ({
+  textField: {
+    margin: '20px auto 25px',
+    width: '90%',
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(1),
+    width: '80%',
+    outline: 0,
+  },
+}));

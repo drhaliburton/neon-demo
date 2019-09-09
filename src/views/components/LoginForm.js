@@ -1,41 +1,20 @@
 import React, { useState } from 'react';
 import Btn from './Button.js';
 import ForgotPw from './ForgotPw.js';
-import { TextField, Modal, Fade, Backdrop } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
-  textField: {
-    'margin-top': '20px',
-    width: '100%',
-    'max-width': '80%',
-  },
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    width: '80%',
-    outline: 0,
-  },
-}));
-
-function LoginForm() {
+function LoginForm(props) {
   const classes = useStyles();
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
+
   const [errors, setErrors] = useState({
     email: false,
     password: false,
   })
-  const [open, setOpen] = useState(false);
-
 
   const handleChange = name => event => {
     const newVals = { ...values, [name]: event.target.value };
@@ -52,7 +31,7 @@ function LoginForm() {
       setErrors({ email: !validEmail, password: !validPw });
     }
     if (validEmail && validPw) {
-      handleOpen();
+      props.openModal();
     }
   }
 
@@ -65,18 +44,11 @@ function LoginForm() {
     return pw.length >= 4;
   }
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <div className="login-form">
       <TextField
         id="outlined-email"
+        type="email"
         error={errors.email}
         className={classes.textField}
         placeholder='Email'
@@ -88,6 +60,7 @@ function LoginForm() {
 
       <TextField
         id="outlined-password"
+        type="password"
         error={errors.password}
         className={classes.textField}
         placeholder='Password'
@@ -106,32 +79,16 @@ function LoginForm() {
 
       <ForgotPw />
 
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">Login Successful!</h2>
-            <Btn
-              clickAction={handleClose}
-              text="Continue Shopping"
-              color="primary"
-              alt="Continue"
-            />
-          </div>
-        </Fade>
-      </Modal>
     </div>
   );
 }
 
 export default LoginForm;
+
+const useStyles = makeStyles(theme => ({
+  textField: {
+    'margin-top': '20px',
+    width: '100%',
+    'max-width': '80%',
+  },
+}));

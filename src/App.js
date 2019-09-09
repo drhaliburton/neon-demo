@@ -4,15 +4,13 @@ import LandingPage from './views/LandingPage.js';
 import LoginPage from './views/LoginPage.js';
 import './styles/App.css';
 
-function App() {
+function App(props) {
   return (
     <>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/login" component={LoginPage} />
     </>
-  );
-}
+  )
+};
 
 export default App;
-
-
