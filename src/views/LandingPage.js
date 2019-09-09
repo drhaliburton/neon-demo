@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Btn from './components/Button.js';
 
-function LandingPage() {
+const LandingPage = () => {
   return (
     <>
       <div className="landing-image"></div>

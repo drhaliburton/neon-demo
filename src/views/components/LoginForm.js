@@ -4,7 +4,7 @@ import ForgotPw from './ForgotPw.js';
 import { TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-function LoginForm(props) {
+const LoginForm = (props) => {
   const classes = useStyles();
   const [values, setValues] = useState({
     email: '',
@@ -31,7 +31,7 @@ function LoginForm(props) {
       setErrors({ email: !validEmail, password: !validPw });
     }
     if (validEmail && validPw) {
-      props.openModal();
+      props.handleAuth(values);
     }
   }
 

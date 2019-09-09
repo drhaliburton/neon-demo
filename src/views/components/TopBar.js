@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Icon, IconButton } from '@material-ui/core';
 
-export default function TopBar(props) {
+const TopBar = (props) => {
   if (props.clickAction) {
     return (
       <div className="top-bar">
@@ -23,3 +23,4 @@ export default function TopBar(props) {
     )
   }
 }
+export default TopBar;

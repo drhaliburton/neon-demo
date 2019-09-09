@@ -4,7 +4,7 @@ import { TextField, Button, Modal, Fade, Backdrop } from '@material-ui/core';
 import Btn from './Button.js';
 import TopBar from './TopBar.js';
 
-export default function ForgotPw(props) {
+const ForgotPw = (props) => {
   const [open, setOpen] = useState(false);
   const [values, setValues] = useState({
     email: '',
@@ -86,6 +86,8 @@ export default function ForgotPw(props) {
     </>
   );
 }
+
+export default ForgotPw;
 
 const useStyles = makeStyles(theme => ({
   textField: {

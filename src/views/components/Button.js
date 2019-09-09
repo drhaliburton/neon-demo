@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-export default function Btn(props) {
+const Btn = (props) => {
   const classes = useStyles();
   return (
     <>
@@ -17,6 +17,8 @@ export default function Btn(props) {
     </>
   );
 }
+
+export default Btn;
 
 const useStyles = makeStyles(theme => ({
   button: {

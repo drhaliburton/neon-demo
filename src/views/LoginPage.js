@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import FixedBgImage from './components/FixedBgImage.js';
-import SocialLogin from './components/SocialLogin.js';
-import LoginForm from './components/LoginForm.js';
+import AuthWrapper from './components/AuthWrapper.js';
 import TopBar from './components/TopBar.js';
 import Btn from './components/Button.js';
 import { Modal, Fade, Backdrop } from '@material-ui/core';
@@ -11,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import shoe2 from '../assets/shoe2.jpg';
 
-function LoginPage(props) {
+const LoginPage = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [name, setName] = useState(false)
@@ -38,8 +37,7 @@ function LoginPage(props) {
       <TopBar icon="arrow_back" linkTo="/" />
       <FixedBgImage image={shoe2} color="#B1EBF7" />
       <div className="content-container scale-up-center">
-        <LoginForm openModal={handleOpen} />
-        <SocialLogin openModal={handleOpen} />
+        <AuthWrapper openModal={handleOpen} />
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"

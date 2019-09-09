@@ -4,7 +4,7 @@ import FixedBgImage from './components/FixedBgImage';
 import TopBar from './components/TopBar';
 import shoe1 from '../assets/shoe1.jpg';
 
-function LandingPage() {
+const LandingPage = () => {
   return (
     <>
       <div className="page-container">
