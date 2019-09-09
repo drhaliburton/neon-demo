@@ -12,7 +12,10 @@ const AuthWrapper = (props) => {
   const handleAuth = ({ email, password }) => {
     firebaseAppAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
-        props.openModal(`Welcome back! Click below to get started.`, 'success');
+        if (res) {
+          props.setAuthorized(true)
+          props.openModal(`Login Successful! Click below to continue.`, 'success');
+        }
       })
       .catch(err => {
         props.openModal(`${err.message} Please try again.`, 'error');
@@ -22,6 +25,7 @@ const AuthWrapper = (props) => {
     props.signInWithFacebook()
       .then(res => {
         if (res) {
+          props.setAuthorized(true)
           props.openModal(`Welcome back, ${res.user.displayName}!`, 'success');
         }
       })

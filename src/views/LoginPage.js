@@ -35,7 +35,7 @@ const LoginPage = (props) => {
       <TopBar icon="arrow_back" linkTo="/" />
       <FixedBgImage image={shoe2} color="#B1EBF7" />
       <div className="content-container scale-up-center">
-        <AuthWrapper openModal={handleOpen} />
+        <AuthWrapper openModal={handleOpen} setAuthorized={props.setAuthorized} />
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
