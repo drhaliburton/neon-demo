@@ -41,7 +41,7 @@ const LoginForm = (props) => {
   }
 
   const validatePassword = (pw) => {
-    return pw.length >= 4;
+    return pw.length >= 6;
   }
 
   return (

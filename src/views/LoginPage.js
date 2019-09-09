@@ -13,11 +13,15 @@ import shoe2 from '../assets/shoe2.jpg';
 const LoginPage = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState(false)
+  const [content, setContent] = useState(false);
+  const [type, setType] = useState('success');
 
-  const handleOpen = (name) => {
-    if (name) {
-      setName(name);
+  const handleOpen = (content, type) => {
+    if (type) {
+      setType(type);
+    }
+    if (content) {
+      setContent(content);
     }
     setOpen(true);
   };
@@ -25,12 +29,6 @@ const LoginPage = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const renderWelcome = () => {
-    if (name) {
-      return `Welcome Back ${name}.`;
-    }
-  }
 
   return (
     <div className="page-container">
@@ -52,16 +50,23 @@ const LoginPage = (props) => {
         >
           <Fade in={open}>
             <div className={classes.paper}>
-              <h2 id="transition-modal-title">Login Successful!</h2>
-              {renderWelcome()}
-              <Link to="/welcome">
-                <Btn
+              <h2 id="transition-modal-title">{content}</h2>
+              {type !== 'error'
+                ? <Link to="/welcome">
+                  <Btn
+                    clickAction={handleClose}
+                    text="Continue"
+                    color="primary"
+                    alt="Continue"
+                  />
+                </Link>
+                : <Btn
                   clickAction={handleClose}
-                  text="Continue Shopping"
-                  color="primary"
-                  alt="Continue"
+                  text="Close"
+                  color="secondary"
+                  alt="Close"
                 />
-              </Link>
+              }
             </div>
           </Fade>
         </Modal>

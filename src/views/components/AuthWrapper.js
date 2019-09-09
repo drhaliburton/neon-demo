@@ -8,17 +8,26 @@ import SocialLogin from './SocialLogin.js';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-
 const AuthWrapper = (props) => {
   const handleAuth = ({ email, password }) => {
-    console.log(email, password)
+    firebaseAppAuth.signInWithEmailAndPassword(email, password)
+      .then(res => {
+        props.openModal(`Welcome back! Click below to get started.`, 'success');
+      })
+      .catch(err => {
+        props.openModal(`${err.message} Please try again.`, 'error');
+      })
   }
   const handleFbAuth = () => {
-    props.signInWithFacebook().then(res => {
-      if (res) {
-        props.openModal(res.user.displayName);
-      }
-    })
+    props.signInWithFacebook()
+      .then(res => {
+        if (res) {
+          props.openModal(`Welcome back, ${res.user.displayName}!`, 'success');
+        }
+      })
+      .catch(err => {
+        props.openModal(`There was an issue with your request. Please try again.`, 'error');
+      })
   }
   return (
     <>
