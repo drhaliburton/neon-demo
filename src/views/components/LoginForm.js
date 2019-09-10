@@ -67,7 +67,7 @@ const LoginForm = (props) => {
         margin="normal"
         variant="outlined"
         onChange={handleChange('password')}
-        helperText={errors.password && 'Minimum of 4 characters'}
+        helperText={errors.password && 'Minimum of 6 characters'}
       />
 
       <Btn
